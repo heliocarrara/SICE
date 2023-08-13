@@ -178,6 +178,7 @@
     <Content Include="Areas\Comum\Views\web.config" />
     <Content Include="Areas\Comum\Views\Visita\GerenciarVisitas.cshtml" />
     <Content Include="Areas\Comum\Views\_ViewStart.cshtml" />
+    <None Include="Properties\PublishProfiles\SICEU - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
