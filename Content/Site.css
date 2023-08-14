@@ -1,6 +1,9 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -35,3 +38,7 @@ textarea {
         .navbar-lgtb .nav-link:hover {
             opacity: 1; /* Menos transparência ao passar o mouse */
         }
+
+.container.body-content {
+    flex: 1;
+}

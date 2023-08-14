@@ -1,0 +1,49 @@
+﻿@model SICE.Models.VMFormUsuario
+@{
+    ViewBag.Title = "Criar Novo Usuário";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="text-center">Novo Usuário</h2>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("GravarFormulario", "Usuario", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(m => m.usuarioUID)
+
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            @Html.TextBoxFor(m => m.nome, new { @class = "form-control", @placeholder = "Nome" })
+                            @Html.ValidationMessageFor(m => m.nome, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            @Html.TextBoxFor(m => m.email, new { @class = "form-control", @placeholder = "Email" })
+                            @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="cpf" class="form-label">CPF</label>
+                            @Html.TextBoxFor(m => m.cpf, new { @class = "form-control", @placeholder = "CPF" })
+                            @Html.ValidationMessageFor(m => m.cpf, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="senha" class="form-label">Senha</label>
+                            @Html.PasswordFor(m => m.senha, new { @class = "form-control", @placeholder = "Senha" })
+                            @Html.ValidationMessageFor(m => m.senha, "", new { @class = "text-danger" })
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">Criar</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

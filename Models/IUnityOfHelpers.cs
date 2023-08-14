@@ -7,6 +7,6 @@ namespace SICE.Models
 {
     public interface IUnityOfHelpers
     {
-        //SiceDbContext idbsiceContext { get; }
+        sicedbEntities idbsiceContext { get; }
     }
 }

@@ -134,17 +134,42 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Cadastro\CadastroAreaRegistration.cs" />
+    <Compile Include="Areas\Cadastro\Controllers\IndexController.cs" />
+    <Compile Include="Areas\Cadastro\Controllers\UsuarioController.cs" />
     <Compile Include="Areas\Comum\ComumAreaRegistration.cs" />
     <Compile Include="Areas\Comum\Controllers\VisitaController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserMessageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Enumerators\TipoLogin.cs" />
     <Compile Include="Models\IUnityOfHelpers.cs" />
-    <Compile Include="Models\Permissao.cs" />
-    <Compile Include="Models\SiceModel.cs" />
-    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\SiceModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SiceModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SiceModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SiceModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SiceModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UnityOfHelpers.cs" />
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>SiceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VMFormUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\UserMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -166,6 +191,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\SiceModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SiceModel.edmx</DependentUpon>
+      <LastGenOutput>SiceModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SiceModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SiceModel.edmx</DependentUpon>
+      <LastGenOutput>SiceModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -197,6 +232,16 @@
     <Content Include="Areas\Comum\Views\web.config" />
     <Content Include="Areas\Comum\Views\Visita\GerenciarVisitas.cshtml" />
     <Content Include="Areas\Comum\Views\_ViewStart.cshtml" />
+    <EntityDeploy Include="Models\SiceModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SiceModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SiceModel.edmx.diagram">
+      <DependentUpon>SiceModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Cadastro\Views\web.config" />
+    <Content Include="Areas\Cadastro\Views\Usuario\Novo.cshtml" />
+    <Content Include="Areas\Cadastro\Views\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\SICEU - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -223,16 +268,26 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Cadastro\Data\" />
+    <Folder Include="Areas\Cadastro\Views\Index\" />
+    <Folder Include="Areas\Cadastro\Views\Shared\" />
     <Folder Include="Areas\Comum\Data\" />
     <Folder Include="Areas\Comum\Views\Shared\" />
+    <Folder Include="Models\ViewModels\" />
+    <Folder Include="Views\UserMessage\" />
+    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

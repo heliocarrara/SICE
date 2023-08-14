@@ -1,57 +1,59 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-lgtb fixed-top">
-            <div class="container">
-                @Html.ActionLink("SICE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-lgtb fixed-top">
+        <div class="container">
+            @Html.ActionLink("SICE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            @Html.ActionLink("Início", "Index", "Home", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Visitas", "GerenciarVisitas", "Visita", new { Area = "Comum"}, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Ordens de Serviço", "Lista", "OrdemServico", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Mapa", "Contact", "Home", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Login", "Login", "Account", null, new { @class = "nav-link" })
-                        </li>
-                    </ul>
-                </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        @Html.ActionLink("Início", "Index", "Home", new { Area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Visitas", "GerenciarVisitas", "Visita", new { Area = "Comum" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Ordens de Serviço", "Lista", "OrdemServico", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Mapa", "Contact", "Home", new { Area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Login", "Login", "Account", new { Area = "" }, new { @class = "nav-link" })
+                    </li>
+                </ul>
             </div>
-        </nav>
-
-        <div class="container mt-5 pt-4 body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - SICE</p>
-            </footer>
         </div>
+    </nav>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/Scripts/bootstrap.js")
-        @RenderSection("scripts", required: false)
-    </body>
+    <div class="container pt-4 body-content">
+        @RenderBody()
+        <hr />
+    </div>
+    <footer>
+        <p class="text-center">&copy; @DateTime.Now.Year - SICE</p>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/bootstrap.js")
+    @RenderSection("scripts", required: false)
+</body>
 
 </html>
 

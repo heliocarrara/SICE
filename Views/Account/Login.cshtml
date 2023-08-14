@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>Login</h4>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Logar", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                @Html.TextBox("usuario", null, new { @class = "form-control", @placeholder = "Enter email" })
+                            </div>
+                            @Html.ValidationMessage("usuario", "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Password" class="form-label">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                @Html.Password("password", null, new { @class = "form-control", @placeholder = "Enter password" })
+                            </div>
+                            @Html.ValidationMessage("password", "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mb-4 form-check">
+                            @Html.CheckBox("remember", new { @class = "form-check-input" })
+                            <label class="form-check-label" for="RememberMe">Remember Me</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    }
+                </div>
+                <div class="card-footer">
+                    @Html.ActionLink("Novo por aqui? Cadastre-se", "Novo", "Usuario", new { Area = "Cadastro" }, new { @class = "btn btn-default" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
